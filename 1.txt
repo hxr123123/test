@@ -1,0 +1,527 @@
+1:  :s/vivian/sky/         #替换当前行第一个 vivian 为 sky
+
+2:  :s/vivian/sky/g     #替换当前行所有 vivian 为 sky
+
+3:  :n,$s/vivian/sky/     #替换第 n 行开始到最后一行中每一行的第一个 vivian 为 sky
+
+4:  :n,$s/vivian/sky/g     #替换第 n 行开始到最后一行中每一行所有 vivian 为 sky
+
+5:  （n 为数字，若 n 为 .，表示从当前行开始到最后一行）
+
+6:  
+
+7:  :%s/vivian/sky/        #（等同于 :g/vivian/s//sky/） 替换每一行的第一个 vivian 为 sky
+
+8:  :%s/vivian/sky/g    #（等同于 :g/vivian/s//sky/g） 替换每一行中所有 vivian 为 sky
+————————————————
+版权声明：本文为CSDN博主「廖子鸿」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/lanxinju/article/details/5731843
+
+
+
+echo "# test" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/hxr123123/test.git
+git push -u origin main
+
+
+
+git clone 时，可以所用不同的协议，包括 ssh, git, https 等，其中最常用的是 ssh，因为速度较快，还可以配置公钥免输入密码。各种写法如下：
+
+git clone git@github.com:fsliurujie/test.git         --SSH协议
+git clone git://github.com/fsliurujie/test.git          --GIT协议
+git clone https://github.com/fsliurujie/test.git      --HTTPS协议
+
+
+
+
+
+
+Git 提供了一个叫做 git config 的工具，专门用来配置或读取相应的工作环境变量。
+
+这些环境变量，决定了 Git 在各个环节的具体工作方式和行为。这些变量可以存放在以下三个不同的地方：
+
+    /etc/gitconfig 文件：系统中对所有用户都普遍适用的配置。若使用 git config 时用 --system 选项，读写的就是这个文件。
+    ~/.gitconfig 文件：用户目录下的配置文件只适用于该用户。若使用 git config 时用 --global 选项，读写的就是这个文件。
+    当前项目的 Git 目录中的配置文件（也就是工作目录中的 .git/config 文件）：这里的配置仅仅针对当前项目有效。每一个级别的配置都会覆盖上层的相同配置，所以 .git/config 里的配置会覆盖 /etc/gitconfig 中的同名变量
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://drive.google.com/drive/folders/1YOobeNgbQ-PuSQnPL3KESFU1dr2tnlA2?usp=sharing
+
+
+server {
+    listen       80;
+    server_name  localhost;
+
+    charset utf-8;
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        #root   /usr/share/nginx/html;
+        #index  index.html index.htm;
+        root /home/jingxiang;
+        autoindex on;    #开启索引功能
+        autoindex_exact_size off;  #关闭计算文件确切大小（单位bytes），只显示大概大小（单位kb、mb、gb）
+        autoindex_localtime on;   #显示本机时间而非 GMT 时间
+   }
+二：配置 ng
+
+
+
+
+
+
+
+server {
+        listen       80;
+        server_name  localhost;
+        access_log /root/share/download.log;
+        charset utf-8;
+        root    /root/share;
+        location / {
+            autoindex_exact_size off;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header   Host $host;
+            client_max_body_size     100m;
+            client_body_buffer_size  128k;
+            proxy_connect_timeout    1200;
+            proxy_read_timeout       1200;
+            proxy_send_timeout       6000;
+            proxy_buffer_size        32k;
+            proxy_buffers            464k;
+            proxy_busy_buffers_size 128k;
+            proxy_temp_file_write_size 128k;
+            autoindex on;
+            limit_rate_after 15m; # 达到最大带宽时开始限制
+            limit_rate 15m; # 带宽限制
+            //正则 如果文件是这些为后缀 则下载
+            if ($request_filename ~* ^.*?\.(txt|doc|pdf|rar|gz|zip|docx|exe|xlsx|ppt|pptx)$){
+                add_header Content-Disposition: 'attachment;';
+            }
+        }
+}
+
+
+
+
+	//下面这行就是引用conf.d目录中自定义的.conf文件
+    
+}include /etc/nginx/conf.d/*.conf; 
+
+
+
+
+autoindex on;# 显示目录
+autoindex_exact_size on;# 显示文件大小
+autoindex_localtime on;# 显示文件时间
+
+server {
+    charset      utf-8,gbk; # windows 服务器下设置后，依然乱码，暂时无解
+    listen       9050 default_server;
+    listen       [::]:9050 default_server;
+    server_name  _;
+    root         /share/fs;
+}
+
+
+wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh"
+chmod +x tcp.sh
+./tcp.sh
+
+
+1bde50c7-6691-43f7-9674-ed843f70008d
+
+
+1E2B-C31F-6B63-9CAC 0D86-0088-D9B2-F241 E40E-01A9-8BC4-9833 7CBE-7926-124B-7B10
+暗网网址：
+1.http://anwanglist6rbv7v.onion
+2.http://345345345gazkjsi.onion
+3.http://345345345qjddy4e.onion
+4.http://23452345nckhecwf.onion
+5.http://daohang77bd7lyjz.onion
+
+http://r6rfy5zlifbsiiym.onion/
+
+ca598ccc-7db8-48a2-a266-139b9f62237d
+
+ca598ccc-7db8-48a2-a266-139b9f62237d
+
+
+54d220a6-b772-499c-a5f2-71278dae25e8
+
+
+
+54d220a6-b772-499c-a5f2-71278dae25e8
+
+ca598ccc-7db8-48a2-a266-139b9f62237d
+    server {
+        listen       0.0.0.0:80;
+        server_name  www.chumeng.buzz;
+        return 301 https://www.chumeng.buzz$request_uri;
+    }
+
+
+http://www.chumeng.buzz/wp-admin/
+	
+
+数据库账号资料
+
+数据库名：www_chumeng_buz
+
+用户：www_chumeng_buz
+
+密码：QFib2tstG5
+
+访问站点：http://www.chumeng.buzz/index.php
+
+
+本脚本只针对 Debian≥9 或是 CentOS≥8 以上的系统，可以开启系统自带BBR加速
+
+    echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+    echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+    sysctl -p
+    lsmod | grep bbr
+
+四合一 BBR Plus / 原版BBR / 魔改BBR （推荐）
+支持环境
+
+Centos 7, Debian 8/9, Ubuntu 16/18 测试通过, 不支持 OVZ
+wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
+
+谷歌原版官方BBR加速脚本
+适用环境
+
+    系统支持：CentOS 6 ，Debian 7 ，Ubuntu 12
+    虚拟技术： KVM、Xen、VMware 等，（OpenVZ 不支持！）
+    内存要求：≥128M
+
+注意事项
+
+    安装 Google BBR 需升级系统内核，有可能出现系统不稳定的现象，请勿在重要的生产环境中安装，以免造成不可预料的后果。
+    Google BBR 和锐速不能同时安装，一个是升级内核，一个是降级内核。
+
+该脚本详细说明：点击访问
+
+脚本如下：
+
+    wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+
+
+
+
+运行以下代码可以解除宝塔面板的强制绑定手机
+
+（运行完毕以后，请清除浏览器缓存并刷新宝塔面板！）
+
+    sed -i "s|bind_user == 'True'|bind_user == 'XXXX'|" /www/server/panel/BTPanel/static/js/index.js
+
+
+
+使用 ssh-keygen 工具生成配对的公钥私钥,
+
+ssh-keygen -t rsa
+id_rsa就是我们自己的私钥文件,是放在自己这里不能拿出去的,id_rsa.pub就是公钥文件,分享这个文件即可实现免密码认证功能
+
+1.服务器端:
+sudo vim /etc/ssh/sshd_config
+2.去掉下面几行代码前面的 # 注释
+
+RSAAuthentication yes 
+PubkeyAuthentication yes 
+AuthorizedKeysFile .ssh/authorized_keys
+3.上传公钥至～/.ssh/authorized_keys
+4.配置本地ssh文件
+目录为 ~/.ssh/config
+内容：
+Host tuzixini #给你想连接的远程服务器起个别名,自己记住就好,方便自己后面使用,像我这里后面直接使用 ssh tuzixini 就可以了
+User tuzixini #远程服务器中你的用户名
+Hostname 10.168.66.1 #远程服务器ip
+IdentityFile C:\Users\Tuzixini\.ssh\id_rsa #本地私钥地址,按照自己实际的路径修改
+
+5.ssh tuzixini
+
+
+
+外网面板地址: http://45.77.20.148:8888/c6f37e1e
+内网面板地址: http://45.77.20.148:8888/c6f37e1e
+username: 3ofa56vz
+password: 4a04c66a
+If you cannot access the panel,
+release the following panel port [8888] in the security group
+若无法访问面板，请检查防火墙/安全组是否有放行面板[8888]端口
+
+
+
+
+stratum+tcp://btc.f2pool.com:1314
+
+@全体成员 通知：2021年上半年报考工作注意事项：
+1.2021上半年报考时间：
+考试日期：2021年5月29日-30日。
+报名时间：2021年3月16日9点-4月10日17点。
+2.报考方式：报考人员登录中国计算机技术职业资格（http://www.ruankao.org.cn/），点击报名入口，进行网上报名。网上报考后，将报名表和身份证复印件交给班主任由系部统一交职培中心，等待报考审核结果；通过报考审核的人员，报名才算成功。
+
+
+ca598ccc-7db8-48a2-a266-139b9f62237d
+104.20.226.97
+/kptiws
+
+tO.U7EYKCSn~
+
+https://dash.cloudflare.com/68ae4afdf4acbe801f153b9dc4dfad61/chumeng.buzz
+
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+sysctl -p
+lsmod | grep bbr
+
+
+e6G36Eq6K2G3kFpiLj
+
+https://billing.virmach.com/clientarea.php?action=productdetails&id=573058
+
+https://www.v2rayssr.com/xraycdn.html
+
+什么是法币交易？
+
+把用法币如人民币直接购买数字货币的过程叫做法币交易，这里面“法”指的是“法币”，如人民币、美元、日元等；“币”指的是数字货币，如比特币、以太坊等，因此“法币交易”就是说“法币”和“数字货币”之间的交易。
+
+那么你明白了，以火币网举例，如果你想用人民币购买BTC、ETH、USDT、EOS、XRP、LTC、HT、HUSD、BCH这9种数字货币，是支持法币交易的，可以用人民币直接购买
+什么是币币交易？
+
+前面说了，那些热门币直接可以通过人民币购买，那么如果想要购买其他数字货币怎么办呢？那就得通过币币交易了。
+
+顾名思义，币币交易就是指一种数字货币和另一种数字货币之间的交易，比如用USDT泰达币交易成比特币BTC、或者用比特币BTC交易成莱特币LTC的过程就是通过币币交易。
+
+
+挖矿是参与维护比特币网络的节点，通过协助生成新区块来获取一定量新增的比特币。当用户发布交易后，需要有人将交易进行确认，写到区块链中，形成新的区块。
+在一个互相不信任的系统中，该由谁来完成这件事情呢？比特币网络采用了 “挖矿” 的方式来解决这个问题。目前，每 10 分钟左右生成一个不超过 1 MB 大小的区块，串联到最长的链尾部，
+每个区块的成功提交者可以得到系统 12.5 个比特币的奖励，以及用户附加到交易上的支付服务费用。
+
+拿比特币举例，挖矿的具体过程为：参与者根据上一个区块的 hash 值，10 分钟内的验证过的交易内容，再加上自己猜测的一个随机数 X，让新区块的 hash 值小于比特币网络中给定的一个数。
+这个数越小，计算出来就越难。系统每隔两周会根据上一周期的挖矿时间来调整挖矿难度，来调节生成区块的时间稳定在 10 分钟左右
+
+
+挖矿是消耗计算资源来处理交易，确保网络安全以及保持网络中每个人的信息同步的过程
+任何人均可以在专门的硬件上运行软件而成为比特币矿工。挖矿软件通过P2P网络监听交易广播，执行恰当的任务以处理并确认这些交易。
+比特币矿工完成这些工作能赚取用户支付的用于加速交易处理的交易手续费以及按固定公式增发的比特币
+为了保护和运行一个支付系统而消耗能源并不是一种浪费
+
+
+
+https://t.co/qwwvC68sY3?amp=1
+
+https://zhuanlan.zhihu.com/p/45517482
+
+magnet:?xt=urn:btih:2PG75LRZ3QUK2Q53OHXA3OLNVFVRBD6L
+
+15c4db0c-48fe-11eb-a8bf-f23c91cfbbc9
+
+d5ff023a9203aede1cc0092a0bd607b8
+
+https://raw.githubusercontent.com/wishcaiji/sublist/main/Ghelper.txt
+
+
+https://nfblog.me/exhentai-detail-guide
+
+64BE976E33864B0D9C361374B08360C8B9F3E00F
+
+https://gh.188ck.cn/ghxq
+
+https://github.com/qier222/YesPlayMusic/releases
+
+http://www.1os.top/it/linux/ops/systemd/
+
+https://github.com/sdushantha/macbook-keyboard-visualizer
+
+
+https://github.com/sdushantha/wifi-password
+cd wifi-password
+
+
+
+liaocan5129@163.com——hjx20010707——liaocan5129@163.com----wyw2741
+
+
+https://pan.baidu.com/s/1BMsKiTOzcoXWCwhMOx2m3w
+
+52pj
+@vposy
+
+
+
+
+链接: https://pan.baidu.com/s/1hIRjPneGINkUbSNbNuAARQ 提取码: qqsz 复制这段内容后打开百度网盘手机App，操作更方便哦
+
+
+https://www.google.com/search?tbs=sbi:AMhZZisar6xI3DtNF7pwxyyARLCVDuGfjt2CD6nWFmio168XR-ATOYJFRjxwUdWgjYl5-yC7WKXCYVFF0899zkZuHmEoNsklz8s-zd_1hU70jv1Y-L2jynlRXzZAR0KspCnLVI7JhVxZ2YstYZGT3pNu5nbhVWmUUnbGyiihoM7JuKjeA4DpiRXWER1jnsQVQm0hde-hbSdXOcZ6gctXpX83-vQwEMvNbsUWlLVNRwo07HhiQjwo7FU_1qWwWPMQPamb_1nCTkypUDPzL5GMSXDECWUSe9i03Qn4JujH5EOlrn_1C8waH1I8-UXK4Dr5tcerTgKGkL2-9Tgw&Content-Type=application/json&h1=en
+
+https://www.gufengmh8.com/manhua/yaoguaimingdan/255624.html
+
+magnet:?xt=urn:btih:00C9AE4235DAC78A12BC49F590C0C967D98C3A70
+
+https://drive.google.com/drive/folders/113ulUn86aQBu4MMrZepiRqtO_hmLJxR5   全职高手tv
+
+
+[福利资源 免费共享]
+
+这是一条定时消息，最近比较忙很少上tg，统一到微信公众号领取吧。不便之处还请各位谅解。
+
+免费观看 爱奇艺 腾讯视频 优酷 等各种影视网站VIP视频、电影、网剧、电视剧。
+
+a.万能视频播放命令
+http://vipbox.ml
+
+b.全网收集 影视网站视频解析接口 持续更新
+https://oo0.bid/vipapis.html
+
+海量免费好资源：
+https://oo0.bid
+
+===============
+【长期免费更新】
+百度网盘SVIP 超级会员账号共享
+点击进群 @share_baiduyun_svip
+
+===============
+===============
+
+D4:83:04:52:11:10   FAST_1110
+
+--no-sandbox
+
+80:EA:07:6D:82:0B  tp-link-b820
+
+D4:83:04:DD:B3:C2  fast-b3c2
+
+http://www.biliread.com/thread-44641-1-1.html
+8c92462708fdfd8c051bf288bbb0b7d2
+
+https://www.at-x.com/member/activate/278d1badb88f345df0885f54ab60a15f
+
+http://www.biliread.com/forum.php?mod=attachment&aid=MTI3OTkxfDY1Y2VkNjJlfDE2MTEyMTU1MDN8MzA1NDM5fDQ0NjQx
+
+6098be4a-d27f-4439-8454-4204c9203931
+
+《【"'{[(《<www.176ku.com>》)]}'"】
+
+https://onedrive.gimhoy.com/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3QvcyFBbUpaaS1tSlozNVRnUnh3UTJQVGpMVEJZZGhm
+
+
+$ sudo apt-add-repository ppa:rodsmith/refind
+$ sudo apt update
+$ sudo apt install refind
+
+vless://73eb3e05-9063-048e-ce71-
+
+a6203fb2d321@domain08.qiu4.ml:443?encryption=none&security=tls&type=ws&host=a.chumeng.buzz&path=%2fttcwws#a.chumeng.buzz_vless_ws
+ttps://ecchi.iwara.tv/user/reset/1627763/1610101544/CNrI8EZWJzA6i1Cej3y0hfCaXtOairqFR8KdU6YgiQw
+
+Your password
+
+https://cloud.189.cn/t/mmqUfqNZRZRn(访问码:84we)
+
+
+https://adlib1.net/ws2/h-life/page-6
+
+https://adlib1.net/ws2/h-life/
+
+https://qxzh.github.io/contents/
+
+EF2FFF88FBC63027309E63E24978C67F#A56A83C8D4E8A43715AB7FF69C0B685C#193923995#[RJ218486].rar
+
+41D2074EDB45DB2871A6645B57E682CD#45B48430EAF5B8C6C4A8369FB66EECA5#565292325#[RJ199309].rar
+
+41D2074EDB45DB2871A6645B57E682CD#45B48430EAF5B8C6C4A8369FB66EECA5#565292325#[RJ199309].rar
+
+10D299C6DA52B06D357B3EB104D5CF5E#3793F75BD0B40F6B8085635D1591F91A#190258429#[RJ235860].rar
+
+BAFBA96D98B304CFCF5ECC488CDCBCD7#6442B823D8B66150A958B4E702611D6D#70817414#[RJ159773].rar
+
+Kv*^IKQz2(h9
+
+https://cznull.github.io/vsbm
+
+https://www.cartoonpornvideos.com/video/teen-hentai-girl-is-tied-up-and-fucked-in-dirty-sex-prison-91i2jflh8e3.html
+
+https://www.ppha.xyz/index.php/vod/play/id/106138/sid/1/nid/1.html
+
+https://9uu.com/video/detail?id=71857&line=default1&encrypt=1
+
+http://www.bbnainai.com/9782
+
+https://9uu33.com/20200604/8c8b58d3c4bc2eea38b6b5a30485619d.mp4
+
+https://9uu33.com/20200901/163eb3e83f50b5caed39373e5331034a.mp4
+
+https://9uu33.com/20200824/f0eae4731dc05f679de066f6954b8827.mp4
+
+https://hardcoreteens.co/videos/93254/fxx-seven-70/?asgtbndr=1
+
+https://hardjap.co/videos/27643/play3/?asgtbndr=1
+
+https://udvl.com/videos/12002/jk3/
+
+https://vjav.com/videos/329788/1a8eb55c479545de43a665e9286a6a48/?promo=10376
+
+https://k2s.cc/file/b91296b536ccf
+
+http://pt.btschool.club/login.php
+
+[ k2s.cc ] http://k2s.cc/file/6422895b49b6d
+[ k2s.cc ] http://k2s.cc/file/c98e6219ef82e
+[ k2s.cc ] http://k2s.cc/file/cd78a93e68aba
+
+
+[ keep2s.cc ] http://keep2s.cc/file/fa23c94331a36
+[ keep2s.cc ] http://keep2s.cc/file/b8c42702085f0
+[ keep2s.cc ] http://keep2s.cc/file/3aac2f75fc049 
+
+ sudo service nmbd restart
+
+google-chrome-stable --proxy-server="127.0.0.1:8889"
+
+google-chrome-stable --proxy-server="socks://127.0.0.1:1089"
+
+https://www.youtube.com/watch?app=desktop&v=z1Voodp12UQ
+
+https://forums.e-hentai.org/index.php?act=idx
+
+
+
+https://youyun666.site/link/8VE3dhquM0A7oJIA?sub=3
+https://www.cxkv2.xyz/link/o2O51CiEWDXwssoc?mu=2
+http://proxypool.turinglabs.net/upload/daily/randomshadowsocks
+
+mappUm-pixbeb-dyvri2
+
+https://drive.google.com/file/d/1BKyIyKRbSFGGFlPrFY8DfcJAbYxSOzbz
+
+https://jisumax.pw/#/register?code=ELIOGp60 (可白嫖机场)
+
+A5TV7DU5GM5KLR5V264HDX3RHPNH2H6WI
+https://link.resilio.com/#f=iphone&sz=1E6&t=1&s=E6OWLO732FFNY6NYEEI4TCD2U3WT3A5N&i=CAP2F7KMIIQZYACVSQ77TWYUOHMT4DVJS&e=1609230914&v=2.7&a=3
+
+Al少女
+XC5MCDLA6ZQ7DT3XNVGOHPKTAW37MWDO  9.31GB
+微博萝莉合集  BRZCFCP6G7KY557AGIIN5YIBAVC5HE5LC  86GB
+幼幼  B4VB3CDOSVHQV53AHUFBLQR6N7NUU3L7I  490MB
+
+某飞网址：
+https://nfs（删掉这里）tar.net/
+拷贝上方链接到浏览器打开
